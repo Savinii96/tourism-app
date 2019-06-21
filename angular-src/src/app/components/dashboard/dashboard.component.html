@@ -13,37 +13,44 @@
         <span *ngIf="notification.type === 'review'">
           <span><mat-icon style="vertical-align: middle">rate_review</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
-          <span>reviewed your <a [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+          <span>reviewed your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
         </span>
 
         <span *ngIf="notification.type === 'favorite'">
           <span><mat-icon style="vertical-align: middle">favorite</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
-          <span>favorited your <a [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+          <span>favorited your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
         </span>
 
         <span *ngIf="notification.type === 'updateFav'">
           <span><mat-icon style="vertical-align: middle">edit</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
-          <span>updated the <a [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a> you have favorited</span>
+          <span>updated the <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a> you have favorited</span>
         </span>
 
         <span *ngIf="notification.type === 'deleteFav'">
           <span><mat-icon style="vertical-align: middle">delete</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
@@ -68,7 +75,8 @@
 
           <span> you have request for purchase has been accepted by</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
         </span>
 
         <span *ngIf="notification.type === 'reqDecline'">
@@ -81,7 +89,8 @@
 
           <span> you have request for purchase has been declined by</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
         </span>
 
         <button mat-icon-button style="float: right" color="warn" (click)="deleteNot(notification._id)">
@@ -94,37 +103,44 @@
         <span *ngIf="notification.type === 'review'">
           <span><mat-icon style="vertical-align: middle">rate_review</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
-          <span>reviewed your <a [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+          <span>reviewed your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
         </span>
 
         <span *ngIf="notification.type === 'favorite'">
           <span><mat-icon style="vertical-align: middle">favorite</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
-          <span>favorited your <a [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+          <span>favorited your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
         </span>
 
         <span *ngIf="notification.type === 'updateFav'">
           <span><mat-icon style="vertical-align: middle">edit</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
-          <span>updated the <a [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a> you have favorited</span>
+          <span>updated the <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a> you have favorited</span>
         </span>
 
         <span *ngIf="notification.type === 'deleteFav'">
           <span><mat-icon style="vertical-align: middle">delete</mat-icon> &nbsp;&nbsp;</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
 
           <span> has </span>
 
@@ -149,7 +165,8 @@
 
           <span> you have request for purchase has been accepted by</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
         </span>
 
         <span *ngIf="notification.type === 'reqDecline'">
@@ -162,7 +179,8 @@
 
           <span> you have request for purchase has been declined by</span>
 
-          <span><a [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
         </span>
 
         <button mat-icon-button style="float: right" color="warn" (click)="deleteNot(notification._id)">

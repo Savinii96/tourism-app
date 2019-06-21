@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OpenReqComponent } from './open-req.component';
+import {OpenReqComponent} from './open-req.component';
 
 describe('OpenReqComponent', () => {
   let component: OpenReqComponent;
@@ -8,9 +8,9 @@ describe('OpenReqComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpenReqComponent ]
+      declarations: [OpenReqComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
