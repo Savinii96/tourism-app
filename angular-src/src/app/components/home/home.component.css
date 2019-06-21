@@ -1,0 +1,38 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+mat-card {
+  margin: 10px;
+  text-align: center;
+  height: 30%;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+mat-card-content{
+  height: 45%;
+}
+
+.card-header {
+  width: 100%;
+  margin-left: -15px;
+  color: white;
+}
+
+.card-button{
+  width: 100%;
+}
+
+.home {
+  height: 90%;
+  width: 99%;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  background-image: url("../../../assets/home-pic.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #464646;
+}

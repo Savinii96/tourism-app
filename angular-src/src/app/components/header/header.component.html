@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <button mat-button [routerLink]="['/home']">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <span>Welcome to Sri Lanka</span>
+
+  <div class="menu-buttons">
+    <button mat-button [routerLink]="['/notifications']">
+      <mat-icon>notifications</mat-icon>
+      Notifications
+    </button>
+    <button mat-button [routerLink]="['/register']">
+      <mat-icon>person_add</mat-icon>
+      Register
+    </button>
+    <button mat-button [routerLink]="['/login']">
+      <mat-icon>person</mat-icon>
+      LogIn
+    </button>
+  </div>
+</mat-toolbar>
