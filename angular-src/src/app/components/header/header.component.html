@@ -6,17 +6,58 @@
   <span>Welcome to Sri Lanka</span>
 
   <div class="menu-buttons">
-    <button mat-button [routerLink]="['/notifications']">
+    <button
+      mat-button
+      [routerLink]="['/attractions/all']"
+    >
+      <mat-icon>photo</mat-icon>
+      Attractions
+    </button>
+
+    <button
+      *ngIf="authService.loggedIn()"
+      mat-button
+      [routerLink]="['/profile']"
+    >
+      <mat-icon>account_circle</mat-icon>
+      Profile
+    </button>
+
+    <button
+      *ngIf="authService.loggedIn()"
+      mat-button
+      [routerLink]="['/notifications']"
+    >
       <mat-icon>notifications</mat-icon>
       Notifications
     </button>
-    <button mat-button [routerLink]="['/register']">
+
+    <button
+      *ngIf="!authService.loggedIn()"
+      mat-button
+      [routerLink]="['/register']"
+    >
       <mat-icon>person_add</mat-icon>
       Register
     </button>
-    <button mat-button [routerLink]="['/login']">
+
+    <button
+      *ngIf="!authService.loggedIn()"
+      mat-button
+      [routerLink]="['/login']"
+    >
       <mat-icon>person</mat-icon>
       LogIn
     </button>
+
+    <button
+      *ngIf="authService.loggedIn()"
+      mat-button
+      (click)="onLogout()"
+    >
+      <mat-icon>person_outline</mat-icon>
+      LogOut
+    </button>
+
   </div>
 </mat-toolbar>

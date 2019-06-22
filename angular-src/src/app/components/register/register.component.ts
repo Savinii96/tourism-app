@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ValidateService} from "../../services/validate/validate.service";
 import {AuthService} from "../../services/auth/auth.service";
 import {FlashMessagesService} from "angular2-flash-messages";
-import {User} from "../../object-classes/user";
 import {Router} from "@angular/router";
 
 @Component({
@@ -36,7 +35,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    const user: User = {
+    const user: any = {
       name: this.name,
       username: this.username,
       email: this.email,

@@ -15,11 +15,11 @@ router.post('/register', (req, res) => {
         password: req.body.password,
         telephoneNo: req.body.telephoneNo,
         mobileNo: req.body.mobileNo,
-
+        address: req.body.address
     });
 
     User.addUser(newUser, (err, user) => {
-        if(err) {
+        if (err) {
             console.log(err);
             res.json({success: false, msg: 'Failed to register user: ' + err});
         } else {
@@ -33,21 +33,23 @@ router.post('/authenticate', (req, res) => {
     const password = req.body.password;
 
     User.getUserByUsername(username, (error, user) => {
-        if(error) throw error;
+        if (error) throw error;
 
-        if(!user) {
+        if (!user) {
             return res.json({success: false, msg: "User not found"})
         }
 
         User.comparePassword(password, user.password, (error, isMatch) => {
-            if(error) throw error;
+            if (error) {
+                return res.json({success: false, msg: 'An error occurred. Error: ' + error});
+            }
 
-            if(isMatch){
+            if (isMatch) {
                 const token = jwt.sign(user.toJSON(), config.secret, {
                     expiresIn: 604800 //1 week
                 });
 
-                res.json({
+                return res.json({
                     success: true,
                     token: 'JWT ' + token,
                     user: {
@@ -60,11 +62,11 @@ router.post('/authenticate', (req, res) => {
             } else {
                 return res.json({success: false, msg: "Incorrect password"});
             }
-        })
-    })
+        });
+    });
 });
 
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res,next) => {
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     res.json({user: req.user});
 });
 
