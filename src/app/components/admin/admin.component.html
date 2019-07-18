@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Category</th>
+    <th scope="col">Province</th>
+    <th scope="col">District</th>
+    <th scope="col">Image</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let country of countries; index as i">
+    <td>{{ country.attractionName  }}</td>
+    <td>{{ country.attractionCategory }}</td>
+    <td>{{ country.province  }}</td>
+    <td>{{ country.district }}</td>
+    <td>
+      <img [src]="country.imageBase64" class="mr-2" style="width: 100px">
+    </td>
+    <td><button (click)="accept(country._id)">Accept</button></td>
+    <td><button (click)="reject(country._id)">Reject</button></td>
+
+  </tr>
+  </tbody>
+</table>
