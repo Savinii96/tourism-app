@@ -1,0 +1,193 @@
+<div class="container" style="margin-top: 10px">
+  <div *ngIf="!notsAvailable" style="margin-top: 100px; text-align: center; width: 100%">
+    <p>
+      <mat-icon>report_problem</mat-icon>
+    </p>
+    <h3>You have no notifications</h3>
+  </div>
+
+  <div *ngIf="notsAvailable">
+    <div *ngFor="let notification of notifications">
+      <p *ngIf="!notification.checked" style="padding: 10px; background: lightblue">
+
+        <span *ngIf="notification.type === 'review'">
+          <span><mat-icon style="vertical-align: middle">rate_review</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>reviewed your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'favorite'">
+          <span><mat-icon style="vertical-align: middle">favorite</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>favorited your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'updateFav'">
+          <span><mat-icon style="vertical-align: middle">edit</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>updated the <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a> you have favorited</span>
+        </span>
+
+        <span *ngIf="notification.type === 'deleteFav'">
+          <span><mat-icon style="vertical-align: middle">delete</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>deleted the item/service you have favorited</span>
+        </span>
+
+        <span *ngIf="notification.type === 'request'">
+          <span><mat-icon style="vertical-align: middle">info</mat-icon> &nbsp;&nbsp;</span>
+
+          <span>You have a new purchase </span>
+
+          <span><a [routerLink]="['/requests/']">request</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'reqAccept'">
+          <span><mat-icon style="vertical-align: middle">done</mat-icon> &nbsp;&nbsp;</span>
+
+          <span>The </span>
+
+          <span><a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+
+          <span> you have request for purchase has been accepted by</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'reqDecline'">
+          <span><mat-icon style="vertical-align: middle">clear</mat-icon> &nbsp;&nbsp;</span>
+
+          <span>The </span>
+
+          <span><a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+
+          <span> you have request for purchase has been declined by</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+        </span>
+
+        <button mat-icon-button style="float: right" color="warn" (click)="deleteNot(notification._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </p>
+
+      <p *ngIf="notification.checked" style="padding: 10px">
+
+        <span *ngIf="notification.type === 'review'">
+          <span><mat-icon style="vertical-align: middle">rate_review</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>reviewed your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'favorite'">
+          <span><mat-icon style="vertical-align: middle">favorite</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>favorited your <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'updateFav'">
+          <span><mat-icon style="vertical-align: middle">edit</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>updated the <a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a> you have favorited</span>
+        </span>
+
+        <span *ngIf="notification.type === 'deleteFav'">
+          <span><mat-icon style="vertical-align: middle">delete</mat-icon> &nbsp;&nbsp;</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+
+          <span> has </span>
+
+          <span>deleted the item/service you have favorited</span>
+        </span>
+
+        <span *ngIf="notification.type === 'request'">
+          <span><mat-icon style="vertical-align: middle">info</mat-icon> &nbsp;&nbsp;</span>
+
+          <span>You have a new purchase </span>
+
+          <span><a [routerLink]="['/requests/']">request</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'reqAccept'">
+          <span><mat-icon style="vertical-align: middle">done</mat-icon> &nbsp;&nbsp;</span>
+
+          <span>The </span>
+
+          <span><a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+
+          <span> you have request for purchase has been accepted by</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+        </span>
+
+        <span *ngIf="notification.type === 'reqDecline'">
+          <span><mat-icon style="vertical-align: middle">clear</mat-icon> &nbsp;&nbsp;</span>
+
+          <span>The </span>
+
+          <span><a
+            [routerLink]="['/' + notification.itemType + 's/' + notification.itemId]">{{notification.itemType}}</a></span>
+
+          <span> you have request for purchase has been declined by</span>
+
+          <span><a
+            [routerLink]="['/users/' + notification.fromType + '/' + notification.fromId]">{{notification.fromUsername}}</a></span>
+        </span>
+
+        <button mat-icon-button style="float: right" color="warn" (click)="deleteNot(notification._id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </p>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+</div>

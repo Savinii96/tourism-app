@@ -1,0 +1,62 @@
+<div style="padding-left: 20rem ;padding-right: 20rem;">
+  <div class="card text-center" style="width: 100%;color: black;">
+    <div class="card-body">
+      <h5 class="card-title">{{item.attractionName}}</h5>
+      <img class="rounded card-img-topd" style="align-self: center" width="300px" [src]="item.imageBase64"
+        alt="Random first slide">
+
+      <p class="card-text">{{item.district}}
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.attractionCategory}}</li>
+      <li class="list-group-item">Province:{{" "}}{{item.province}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.gramaNiladhariDivision}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.district}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.description}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.latitude}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.longitude}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.address}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.email}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.availableTransportModes}}</li>
+      <li class="list-group-item">Attraction Category:{{" "}}{{item.openingHours}}</li>
+
+
+
+    </ul>
+    <div class="card-body">
+      <ngb-rating [(rate)]="currentRate"></ngb-rating>
+      <button *ngIf="!rated" (click)="rate()">Rate</button>
+      <hr>
+      <pre>Rating: <b>{{currentRate}}</b></pre>
+
+      <textarea (change)="review($event.target.value)"></textarea>
+      <button *ngIf="!reviewed" (click)="postReview()">Review</button>
+
+    </div>
+  </div>
+  <!-- <h3>{{item.attractionName}}</h3>
+  <p>{{item.district}}</p> -->
+</div>
+
+<!-- <div class="picsum-img-wrapper">
+    <img class="rounde card-img-topd" width="100%" [src]="item.imageBase64" alt="Random first slide">
+
+</div> -->
+
+<!-- <div class="row card-group">
+  <div class="col4" *ngFor="let presentation of reviews">
+    <div class="card text-center">
+      <h3>{{presentation.timestamp}}</h3>
+      <p>{{presentation.description}}</p>
+    </div>
+  </div>
+</div> -->
+<div style="padding-left: 20rem ;padding-right: 20rem;" *ngFor="let presentation of reviews">
+  <div class="card" style="width: 100%;color: black;">
+    <div class="card-body">
+        <!-- <h3>{{presentation.timestamp}}</h3> -->
+        <p>{{presentation.description}}</p>
+    </div>
+  </div>
+</div>
