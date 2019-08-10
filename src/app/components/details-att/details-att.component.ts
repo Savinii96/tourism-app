@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./details-att.component.css']
 })
 export class DetailsAttComponent implements OnInit {
+
   id = ''
   item = []
   currentRate = 0;

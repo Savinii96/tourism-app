@@ -32,11 +32,14 @@
   <div class="col-4"  *ngFor="let presentation of attractions" >
       <div *ngIf="presentation.approved" class="card text-center" (click)="view(presentation._id)">
           <div class="picsum-img-wrapper">
-            <img class="rounded" width="500px"[src]="presentation.imageBase64" alt="Random first slide">
+            <img class="rounded" width="500px"[src]="presentation.imageBase64[0]" alt="Random first slide">
           </div>
           <div class="carousel-caption">
             <h3>{{presentation.attractionName}}</h3>
             <p>{{presentation.district}}</p>
+            <p><ngb-progressbar type="success" [value]="presentation.positive" [striped]="true">Positivity {{presentation.positive}}%</ngb-progressbar></p>
+            <p><ngb-progressbar type="danger" [value]="presentation.negative" [striped]="true">Negativity {{presentation.negative}}%</ngb-progressbar></p>
+
           </div>
       </div>
   </div>

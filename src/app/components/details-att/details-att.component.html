@@ -2,9 +2,19 @@
   <div class="card text-center" style="width: 100%;color: black;">
     <div class="card-body">
       <h5 class="card-title">{{item.attractionName}}</h5>
-      <img class="rounded card-img-topd" style="align-self: center" width="300px" [src]="item.imageBase64"
-        alt="Random first slide">
-
+      <!-- <div *ngFor="let image of item.imageBase64">
+        <div class="picsum-img-wrapper">
+          <img class="rounded card-img-topd" style="align-self: center" width="300px" [src]="image"
+            alt="Random first slide">
+        </div>
+      </div> -->
+      <ngb-carousel *ngIf="item.imageBase64" >
+        <ng-template ngbSlide *ngFor="let image of item.imageBase64">
+          <div class="picsum-img-wrapper">
+            <img width="100%" [src]="image" alt="Random first slide">
+          </div>
+        </ng-template>
+      </ngb-carousel>
       <p class="card-text">{{item.district}}
       </p>
     </div>
@@ -55,8 +65,8 @@
 <div style="padding-left: 20rem ;padding-right: 20rem;" *ngFor="let presentation of reviews">
   <div class="card" style="width: 100%;color: black;">
     <div class="card-body">
-        <!-- <h3>{{presentation.timestamp}}</h3> -->
-        <p>{{presentation.description}}</p>
+      <!-- <h3>{{presentation.timestamp}}</h3> -->
+      <p>{{presentation.description}}</p>
     </div>
   </div>
 </div>

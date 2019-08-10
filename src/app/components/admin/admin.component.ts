@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {AuthService} from "../../services/auth/auth.service";
-import {AdminService} from "../../services/Admin/admin.service";
+import { Router } from '@angular/router';
+import { AuthService } from "../../services/auth/auth.service";
+import { AdminService } from "../../services/Admin/admin.service";
 
 
 @Component({
@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(!this.authService.isAdmin()){
+    if (!this.authService.isAdmin()) {
       this.router.navigate(['/login']);
 
     }
@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
     this.adminService.getAttractions().subscribe(data => {
       if (data.success) {
         console.log(data.item)
-        this.attractions=data.item;
+        this.attractions = data.item;
       } else {
 
       }
@@ -35,27 +35,27 @@ export class AdminComponent implements OnInit {
 
   }
 
-  accept(id){
+  accept(id, email) {
 
     console.log(id)
-    this.adminService.acceptReq(id).subscribe(data => {
+    this.adminService.acceptReq(id, email).subscribe(data => {
       if (data.success) {
         console.log(data.item)
-        
+
       } else {
-    
+
       }
     })
 
   }
 
-  reject(id){
+  reject(id, email) {
     console.log(id)
-    this.adminService.rejectReq(id).subscribe(data => {
+    this.adminService.rejectReq(id, email).subscribe(data => {
       if (data.success) {
         console.log(data.item)
       } else {
-    
+
       }
     })
 

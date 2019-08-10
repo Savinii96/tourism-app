@@ -16,10 +16,10 @@
     <td>{{ attraction.province  }}</td>
     <td>{{ attraction.district }}</td>
     <td>
-      <img [src]="attraction.imageBase64" class="mr-2" style="width: 100px">
+      <img [src]="attraction.imageBase64[0]" class="mr-2" style="width: 100px">
     </td>
-    <td *ngIf="!attraction.approved"><button (click)="accept(attraction._id)">Accept</button></td>
-    <td *ngIf="attraction.approved"><button (click)="reject(attraction._id)">Reject</button></td>
+    <td *ngIf="!attraction.approved"><button (click)="accept(attraction._id,attraction.email)">Accept</button></td>
+    <td *ngIf="attraction.approved"><button (click)="reject(attraction._id,attraction.email)">Reject</button></td>
 
   </tr>
   </tbody>

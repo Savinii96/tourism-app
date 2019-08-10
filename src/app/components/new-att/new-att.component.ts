@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./new-att.component.css']
 })
 export class NewAttComponent implements OnInit {
+  urls = [];
   attractionName: string;
   attractionCategory: string;
   province: string;
@@ -68,7 +69,7 @@ export class NewAttComponent implements OnInit {
       availableTransportModes: this.availableTransportModes,
       openingHours: this.openingHours,
       emergencyServices: this.emergencyServices,
-      imageBase64:this.imageSrc,
+      imageBase64:this.urls,
       approved:false,
       userId:this.userId
 
@@ -99,24 +100,40 @@ export class NewAttComponent implements OnInit {
 
   }
 
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+        var filesAmount = event.target.files.length;
+        for (let i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
 
-  handleInputChange(e) {
-    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
-    var pattern = /image-*/;
-    var reader = new FileReader();
-    if (!file.type.match(pattern)) {
-      alert('invalid format');
-      return;
+                reader.onload = (event:any) => {
+                  console.log(event.target.result);
+                   this.urls.push(event.target.result); 
+                }
+
+                reader.readAsDataURL(event.target.files[i]);
+        }
     }
-    reader.onload = this._handleReaderLoaded.bind(this);
-    reader.readAsDataURL(file);
+    console.log(this.urls)
+  }
 
-  }
-  _handleReaderLoaded(e) {
-    let reader = e.target;
-    this.imageSrc = reader.result;
-    // console.log(this.imageSrc)
-  }
+  // handleInputChange(e) {
+  //   var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+  //   var pattern = /image-*/;
+  //   var reader = new FileReader();
+  //   if (!file.type.match(pattern)) {
+  //     alert('invalid format');
+  //     return;
+  //   }
+  //   reader.onload = this._handleReaderLoaded.bind(this);
+  //   reader.readAsDataURL(file);
+
+  // }
+  // _handleReaderLoaded(e) {
+  //   let reader = e.target;
+  //   this.imageSrc = reader.result;
+  //   // console.log(this.imageSrc)
+  // }
 
 
 

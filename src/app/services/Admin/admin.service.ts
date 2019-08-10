@@ -21,17 +21,17 @@ export class AdminService {
     return this.http.get<any>(this.server + 'attraction/getAll',  {headers: headers})
   }
 
-  acceptReq(id): Observable <any> {
+  acceptReq(id,email): Observable <any> {
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.put<any>(this.server + 'attraction/accept',{id:id}, {headers: headers})
+    return this.http.put<any>(this.server + 'attraction/accept',{id:id,email:email}, {headers: headers})
   }
 
-  rejectReq(id): Observable <any>{
+  rejectReq(id,email): Observable <any>{
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.put<any>(this.server + 'attraction/reject', {id:id}, {headers: headers})
+    return this.http.put<any>(this.server + 'attraction/reject', {id:id,email:email}, {headers: headers})
   }
 }
 
