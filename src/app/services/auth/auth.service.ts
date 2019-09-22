@@ -7,8 +7,9 @@ import {JwtHelperService} from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
-  server: String = 'http://localhost:3000/';
-  authToken: any;
+  // server: String = 'http://localhost:3000/';
+  server: String = 'https://tourism-server.herokuapp.com/';
+    authToken: any;
   user: any;
 
   constructor(

@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AdminService {
-  server: String = 'http://localhost:3000/';
+  // server: String = 'http://localhost:3000/';
+  server: String = 'https://tourism-server.herokuapp.com/';
 
   constructor(
     private http: HttpClient,

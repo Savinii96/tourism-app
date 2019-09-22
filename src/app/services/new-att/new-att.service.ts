@@ -8,8 +8,9 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 
 export class NewAttService {
-  server: String = 'http://localhost:3000/';
-  user : any;
+  // server: String = 'http://localhost:3000/';
+  server: String = 'https://tourism-server.herokuapp.com/';
+    user : any;
   authToken: any;
 
 
